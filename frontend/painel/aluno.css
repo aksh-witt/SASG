@@ -1,0 +1,176 @@
+
+        .dashboard-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .class-info {
+            border-left-color: #3498db;
+        }
+
+        .grades-info {
+            border-left-color: #27ae60;
+        }
+
+        .attendance-info {
+            border-left-color: #e67e22;
+        }
+
+        .info-card h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card h3 i {
+            color: #7f8c8d;
+        }
+
+        .subject-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .subject-list th,
+        .subject-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .subject-list th {
+            background-color: #34495e;
+            color: white;
+            font-weight: 600;
+        }
+
+        .subject-list tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .grade {
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .grade-high {
+            background-color: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .grade-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .grade-low {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .attendance-table th,
+        .attendance-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .attendance-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .present {
+            background-color: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .absent {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+            
+            .subject-list, .attendance-table {
+                font-size: 14px;
+            }
+            
+            .subject-list th,
+            .subject-list td,
+            .attendance-table th,
+            .attendance-table td {
+                padding: 8px 4px;
+            }
+        }

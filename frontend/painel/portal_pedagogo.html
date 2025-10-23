@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Administrador</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav id="side-bar">
+        <div id="sidebar_content">
+            <div id="library">
+                <i class="fa-solid fa-bars" id="library_icon"></i>
+                <p id="library-name">
+                    <span class="menu-description"></span>
+                </p>
+                
+            </div>
+    
+            <button id="open-btn"><i id="open-btn-icon" class="fa-solid fa-angle-right"></i></button>
+
+            <ul id="side_items">
+                <li class="side-item active">
+                    <a href="turmas.html">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="item-description">Turmas</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="turmas.html">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <span class="item-description">Professores</span>
+                    </a>
+                </li>
+                 <li class="side-item">
+                    <a href="estudante.html">
+                        <i class="fa-solid fa-person-hiking"></i>
+                        <span class="item-description">Estudantes</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-coins"></i>
+                        <span class="item-description">Financeiro</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="logout">
+            <button id="logout_btn" onclick="logout(event)">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="item-description">Logout</span>
+            </button>
+        </div>
+    </nav>
+
+
+
+    <script src="../home/script.js"></script>
+    <script src="../home/effect.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Administrador</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav id="side-bar">
+        <div id="sidebar_content">
+            <div id="library">
+                <i class="fa-solid fa-bars" id="library_icon"></i>
+                <p id="library-name">
+                    <span class="menu-description"></span>
+                </p>
+                
+            </div>
+    
+            <button id="open-btn"><i id="open-btn-icon" class="fa-solid fa-angle-right"></i></button>
+
+            <ul id="side_items">
+                <li class="side-item active">
+                    <a href="#">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="item-description">Turmas</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <span class="item-description">Professores</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-music"></i>
+                        <span class="item-description">Professores</span>
+                    </a>
+                </li>
+                 <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-person-hiking"></i>
+                        <span class="item-description">Estudantes</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-coins"></i>
+                        <span class="item-description">Financeiro</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="logout">
+            <button id="logout_btn" onclick="logout(event)">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="item-description">Logout</span>
+            </button>
+        </div>
+    </nav>
+
+
+    <header>
+
+        
+
+    </header>
+
+<main>
+
+    <div class="card" id="openModalCard">
+        <div class="card-content">
+            <h2>Gerenciar Turmas</h2>
+            <p>Clique para ver as opções.</p>
+        </div>
+    </div>
+
+    <div class="card" id="openTeacherModalCard">
+        <div class="card-content">
+            <h2>Gerenciar Professores</h2>
+            <p>Clique para cadastrar, editar e vincular professores.</p>
+        </div>
+    </div>
+
+    <div class="card" id="openStudentModalCard">
+        <div class="card-content">
+            <h2>Gerenciar Alunos</h2>
+            <p>Clique para cadastrar, editar e alocar alunos.</p>
+        </div>
+    </div>
+
+
+    <div id="managerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+
+            <div class="modal-section">
+                <h2>Cadastrar Nova Turma</h2>
+                <form id="addClassForm">
+                    <div class="form-group">
+                        <label for="className">Nome da Turma</label>
+                        <input type="text" id="className" placeholder="Ex: 3º Ano - Manhã" required>
+                        <input type="text" id="classGrade" placeholder="Ano da turma" >
+                        <div class="form-group">
+                        <label for="classShift">Turno</label>
+                        <select id="classShift" required>
+                            <option value="" disabled selected>Selecione um turno</option>
+                            <option value="manhã">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noite">Noite</option>
+                        </select>
+                    </div>
+                        <input type="number" id="classCapacity" placeholder="Nº de alunos">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" onclick="cadastrarClass(event)">Salvar</button>
+                </form>
+            </div>
+
+            <div class="modal-section">
+                <h2>Turmas</h2>
+                <div id="classList">
+                    
+                </div>
+            </div>
+        </div>
+    </div> <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <span class="close-teacher-button">&times;</span>
+
+            <div class="modal-section">
+                <h2 id="teacherFormTitle">Cadastrar Novo Professor</h2>
+                <form id="teacherForm">
+                    <div class="form-group">
+                        <label for="teacherName">Nome Completo</label>
+                        <input type="text" id="teacherName" placeholder="Nome do professor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacherEmail">Email</label>
+                        <input type="email" id="teacherEmail" placeholder="email@dominio.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacherPassword">Senha</label>
+                        <input type="password" id="teacherPassword" placeholder="Crie uma senha de acesso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="teacherSpecialization">Especialização</label>
+                        <input type="text" id="teacherSpecialization" placeholder="Ex: Matemática, Português" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Salvar</button>
+                </form>
+            </div>
+
+            <div class="modal-section">
+                <h2>Vincular Professor a uma Turma</h2>
+                <form id="linkTeacherForm">
+                    <div class="form-group">
+                        <label for="selectTeacher">Professor</label>
+                        <select id="selectTeacher" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selectClass">Turma</label>
+                        <select id="selectClass" required></select>
+                    </div>
+                     <div class="form-group">
+                        <label for="selectSubject">Matéria/Disciplina</label>
+                        <select id="selectSubject" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="academicYear">Ano Letivo</label>
+                        <input type="number" id="academicYear" placeholder="Ex: 2025" required value="2025">
+                    </div>
+                    <button type="submit" class="btn-submit">Vincular</button>
+                </form>
+            </div>
+
+            <div class="modal-section">
+                <h2>Professores Cadastrados</h2>
+                <div id="teacherList">
+                </div>
+
+                </div>
+        </div>
+    </div>
+
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-student-button">&times;</span>
+
+            <div class="modal-section">
+                <h2 id="studentFormTitle">Cadastrar Novo Aluno</h2>
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="studentName">Nome Completo</label>
+                        <input type="text" id="studentName" placeholder="Nome do aluno" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Email</label>
+                        <input type="email" id="studentEmail" placeholder="email@dominio.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentPassword">Senha</label>
+                        <input type="password" id="studentPassword" placeholder="Crie uma senha de acesso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEnrollment">Número de Matrícula</label>
+                        <input type="text" id="studentEnrollment" placeholder="Ex: 2025001" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentClass">Turma</label>
+                        <select id="studentClass" required>
+                            </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Salvar</button>
+                </form>
+            </div>
+
+            <div class="modal-section">
+                <h2>Alunos Cadastrados</h2>
+                <div id="studentList">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+    
+
+    <script src="../home/script.js"></script>
+    <script src="../home/effect.js"></script>
+</body>
+</html>

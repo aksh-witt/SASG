@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #636059;
+    display: flex;
+}
+
+/* --- BARRA LATERAL --- */
+#side-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #282120;
+    height: 100vh; /* Ocupa a altura toda da tela */
+    border-radius: 0 18px 18px 0;
+    position: relative;
+    transition: all .5s;
+    min-width: 5vw;
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+/* --- HEADER DA BIBLIOTECA --- */
+#library {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 24px;
+    padding: 12px;
+}
+
+#library_icon {
+    font-size: 28px;
+    color: #fff;
+}
+
+#library-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* --- BOTÃO DE ABRIR/FECHAR --- */
+#open-btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #282120;
+    color: #fff;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#open-btn-icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open-btn-icon {
+    transform: rotate(180deg);
+}
+
+/* --- ITENS DA LISTA --- */
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha à esquerda */
+    color: #fff;
+    border-radius: 8px;
+    padding: 14px;
+    gap: 15px; /* Espaço entre ícone e texto */
+}
+
+/* .side-item.active a {
+    background-color: #5d5085;
+} */
+
+.side-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* expansao */
+.item-description {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .2s;
+}
+
+#side-bar.open-sidebar {
+    min-width: 250px;
+}
+
+#side-bar.open-sidebar .item-description {
+    width: 150px;
+}
+
+
+#logout {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+}
+
+#logout_btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+}
+
+#logout_btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* painel */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+} 
+
+.card {
+    width: 320px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 { margin-top: 0; }
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.modal-section {
+    margin-bottom: 30px;
+}
+.modal-section:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Form Styles --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FAD02C;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #caa925;
+}
+
+/* --- Class List Styles --- */
+#classList {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.class-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.class-name {
+    color: #444;
+}
+
+/* The round delete button */
+.delete-btn, .edit-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ffdddd;
+    background-color: #fff5f5;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e53e3e;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.delete-btn:hover, .edit-btn:hover {
+    background-color: #e53e3e;
+    border-color: #e53e3e;
+    color: white;
+}
+.delete-btn::after {
+    content: 'X'; /* Visual placeholder, replace with your icon */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+/* E adicione , .form-group select ao seletor, assim: */
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Adicione a linha abaixo para herdar a fonte, o que melhora a consistência */
+    font-family: inherit;
+}
+
+#classGrade {
+    gap: 35px;
+}
+
+/* Prof */
+
+.cards-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-content { padding: 20px; }
+        .card-content h2 { margin-top: 0; color: #333; }
+        .card-content p { color: #666; }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Começa escondido */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover { color: #000; }
+        
+        /* Tabela de Alunos */
+        #student-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #student-table th, #student-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #student-table th {
+            background-color: #f2f2f2;
+        }
+        #student-table input, #student-table select {
+            width: 95%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .btn-save-student {
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-save-student:hover { background-color: #218838; }

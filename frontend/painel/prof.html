@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Professor</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="painel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="prof.css">
+</head>
+<body>
+    <nav id="side-bar">
+        <div id="sidebar_content">
+            <div id="library">
+                <i class="fa-solid fa-bars" id="library_icon"></i>
+                <p id="library-name">
+                    <span class="menu-description">Portal Professor</span>
+                </p>
+            </div>
+    
+            <button id="open-btn"><i id="open-btn-icon" class="fa-solid fa-angle-right"></i></button>
+
+            <ul id="side_items">
+                <li class="side-item active">
+                    <a href="prof_painel.html">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="item-description">Minhas Turmas</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span class="item-description">Controle de Presença</span>
+                    </a>
+                </li>
+                <li class="side-item">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span class="item-description">Lançar Notas</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="logout">
+            <button id="logout_btn" onclick="logout(event)">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="item-description">Sair</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Minhas Turmas</h2>
+        <div id="teacher-class-cards-container" class="cards-container">
+            
+        </div>
+    </main>
+
+    <div id="class-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal-button">&times;</span>
+            <h2 id="class-modal-title">Alunos da Turma</h2>
+            <div id="student-list-container">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="../home/script.js"></script>
+    <script src="../home/effect.js"></script>
+</body>
+</html>
